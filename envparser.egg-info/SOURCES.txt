@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+envparser/__init__.py
+envparser.egg-info/PKG-INFO
+envparser.egg-info/SOURCES.txt
+envparser.egg-info/dependency_links.txt
+envparser.egg-info/entry_points.txt
+envparser.egg-info/top_level.txt
+envparser.egg-info/zip-safe

@@ -89,3 +89,11 @@ class ParserTest(TestCase):
         name = parser.get('name')
 
         self.assertEqual(name, 'John Doe Live INI')
+
+    @istest
+    def gets_boolean_from_configuration(self):
+        parser = Parser(self.basefile)
+
+        is_masculin = parser.getboolean('is_masculin')
+
+        self.assertTrue(is_masculin)

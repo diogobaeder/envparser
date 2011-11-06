@@ -23,7 +23,6 @@ class Parser(object):
         except ConfigParser.NoSectionError:
             return method('DEFAULT', option)
 
-
     def get(self, option):
         return self.__get_with_method(self.__parser.get, option)
 
@@ -32,3 +31,6 @@ class Parser(object):
 
     def getfloat(self, option):
         return self.__get_with_method(self.__parser.getfloat, option)
+
+    def getboolean(self, option):
+        return self.__get_with_method(self.__parser.getboolean, option)

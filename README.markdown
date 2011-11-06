@@ -140,3 +140,11 @@ import envparser
 parser = envparser.Parser('/home/myuser/myproject/mybaseconfiguration.cfg', 'live')
 parser.getint('age') # prints 30
 ```
+
+## Important information
+
+If you want to use a different environment and provide a file with the configurations to overwrite, you have to use the
+same file extension, or else the parser won't read it (your environment file will be ignored).
+
+For example, if you provide "base.ini" as your base file, and "live.cfg" as the environment file, only "base.ini" will
+be read; But, if you use "base.ini" and "live.ini", then your environment file will be merged successfully.

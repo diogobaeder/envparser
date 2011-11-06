@@ -34,7 +34,7 @@ If you wish to contribute to the project as a developer, just install the requir
 
 ## Examples
 
-Using only one configuration file:
+### Using only one configuration file
 
 ```cfg
 # /home/myuser/myproject/mybaseconfiguration.cfg
@@ -51,4 +51,92 @@ parser = envparser.Parser('/home/myuser/myproject/mybaseconfiguration.cfg')
 parser.get('name') # prints "John Doe"
 parser.getint('age') # prints 30
 parser.getfloat('salary') # prints 560.00
+```
+
+### Providing a different environment
+
+```cfg
+# /home/myuser/myproject/mybaseconfiguration.cfg
+[DEFAULT]
+name: John Doe
+
+[dev]
+name: Awesome Developer
+```
+
+```python
+import envparser
+
+parser = envparser.Parser('/home/myuser/myproject/mybaseconfiguration.cfg', 'dev')
+parser.get('name') # prints "Awesome Developer"
+```
+```
+
+### Providing another file to overwrite the defaults
+
+```cfg
+# /home/myuser/myproject/mybaseconfiguration.cfg
+[DEFAULT]
+name: John Doe
+```
+
+```cfg
+# /home/myuser/myproject/live.cfg
+[DEFAULT]
+name: John Doe Live
+```
+
+```python
+import envparser
+
+parser = envparser.Parser('/home/myuser/myproject/mybaseconfiguration.cfg', 'live')
+parser.get('name') # prints "John Doe Live"
+```
+
+### Sections have higher priority than DEFAULT at environment files...
+
+```cfg
+# /home/myuser/myproject/mybaseconfiguration.cfg
+[DEFAULT]
+name: John Doe
+
+[live]
+age: 20
+```
+
+```cfg
+# /home/myuser/myproject/live.cfg
+[DEFAULT]
+age: 30
+```
+
+```python
+import envparser
+
+parser = envparser.Parser('/home/myuser/myproject/mybaseconfiguration.cfg', 'live')
+parser.getint('age') # prints 20
+```
+
+### ...but if you specify the environment section in the environment file it will succeed in overwriting the base configuration
+
+```cfg
+# /home/myuser/myproject/mybaseconfiguration.cfg
+[DEFAULT]
+name: John Doe
+
+[live]
+age: 20
+```
+
+```cfg
+# /home/myuser/myproject/live.cfg
+[live]
+age: 30
+```
+
+```python
+import envparser
+
+parser = envparser.Parser('/home/myuser/myproject/mybaseconfiguration.cfg', 'live')
+parser.getint('age') # prints 30
 ```

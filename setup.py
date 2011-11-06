@@ -5,8 +5,9 @@ version = '0.1'
 
 setup(name='envparser',
       version=version,
-      description="Environment parser",
+      description="Simple environment configuration parser",
       long_description="""\
+      See https://github.com/diogobaeder/envparser for documentation
 """,
       classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
       keywords='python environment parser configuration settings',

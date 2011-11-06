@@ -81,3 +81,11 @@ class ParserTest(TestCase):
         salary = parser.getfloat('salary')
 
         self.assertEqual(salary, 560.00)
+
+    @istest
+    def gets_string_from_another_environment_using_same_extension_as_base_file(self):
+        parser = Parser(os.path.abspath(os.path.join(os.path.dirname(__file__), 'fixtures', 'base.ini')), 'live')
+
+        name = parser.get('name')
+
+        self.assertEqual(name, 'John Doe Live INI')

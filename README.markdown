@@ -42,6 +42,7 @@ If you wish to contribute to the project as a developer, just install the requir
 name: John Doe
 age: 30
 salary: 560.00
+is_masculin: true
 ```
 
 ```python
@@ -51,6 +52,7 @@ parser = envparser.Parser('/home/myuser/myproject/mybaseconfiguration.cfg')
 parser.get('name') # prints "John Doe"
 parser.getint('age') # prints 30
 parser.getfloat('salary') # prints 560.00
+parser.getboolean('is_masculin') # prints True
 ```
 
 ### Providing a different environment

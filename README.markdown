@@ -70,7 +70,6 @@ import envparser
 parser = envparser.Parser('/home/myuser/myproject/mybaseconfiguration.cfg', 'dev')
 parser.get('name') # prints "Awesome Developer"
 ```
-```
 
 ### Providing another file to overwrite the defaults
 

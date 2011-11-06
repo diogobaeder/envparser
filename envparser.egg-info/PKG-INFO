@@ -1,11 +1,12 @@
 Metadata-Version: 1.0
 Name: envparser
-Version: 0.1dev
-Summary: Environment parser
+Version: 0.1
+Summary: Simple environment configuration parser
 Home-page: https://github.com/diogobaeder/envparser
 Author: Diogo Baeder
 Author-email: desenvolvedor@diogobaeder.com.br
 License: BSD 2-Clause
-Description: UNKNOWN
+Description:       See https://github.com/diogobaeder/envparser for documentation
+        
 Keywords: python environment parser configuration settings
 Platform: UNKNOWN
